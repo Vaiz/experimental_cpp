@@ -32,5 +32,6 @@ struct StructWithWrongMethod {
 
 static_assert(has_method_to_str_v<StructWithWrongMethod>);
 static_assert(!has_method_to_str_ex_v<StructWithWrongMethod>);
+static_assert(has_method_to_str_ex_v<StructWithWrongMethod, int>);
 
 }
