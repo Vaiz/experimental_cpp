@@ -158,10 +158,12 @@
     <ClCompile Include="experimental_cpp.cpp" />
     <ClCompile Include="type_traits\has_method.cpp" />
     <ClCompile Include="type_traits\is_same.cpp" />
+    <ClCompile Include="type_traits\self.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="type_traits\has_method.h" />
     <ClInclude Include="type_traits\is_same.h" />
+    <ClInclude Include="type_traits\self.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".clang-format" />
