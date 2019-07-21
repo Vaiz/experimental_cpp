@@ -7,16 +7,34 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experimental_cpp", "experim
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		c++14|x64 = c++14|x64
+		c++14|x86 = c++14|x86
+		c++17|x64 = c++17|x64
+		c++17|x86 = c++17|x86
+		c++latest|x64 = c++latest|x64
+		c++latest|x86 = c++latest|x86
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.c++14|x64.ActiveCfg = c++14|x64
+		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.c++14|x64.Build.0 = c++14|x64
+		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.c++14|x86.ActiveCfg = c++14|x64
+		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.c++14|x86.Build.0 = c++14|x64
+		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.c++17|x64.ActiveCfg = c++17|x64
+		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.c++17|x64.Build.0 = c++17|x64
+		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.c++17|x86.ActiveCfg = c++17|Win32
+		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.c++17|x86.Build.0 = c++17|Win32
+		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.c++latest|x64.ActiveCfg = c++latest|x64
+		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.c++latest|x64.Build.0 = c++latest|x64
+		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.c++latest|x86.ActiveCfg = c++latest|Win32
+		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.c++latest|x86.Build.0 = c++latest|Win32
 		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.Debug|x64.ActiveCfg = Debug|x64
 		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.Debug|x64.Build.0 = Debug|x64
-		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.Debug|x86.ActiveCfg = Debug|Win32
-		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.Debug|x86.Build.0 = Debug|Win32
+		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.Debug|x86.ActiveCfg = Debug|x64
+		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.Debug|x86.Build.0 = Debug|x64
 		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.Release|x64.ActiveCfg = Release|x64
 		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.Release|x64.Build.0 = Release|x64
 		{10394563-E70A-4E0B-90DB-6765F3BF32C0}.Release|x86.ActiveCfg = Release|Win32
