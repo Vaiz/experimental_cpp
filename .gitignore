@@ -1,6 +1,7 @@
 # visual studio
 .vs/
 Debug/
+x64/
 *.user
 *.filters
 
@@ -37,3 +38,4 @@ Debug/
 *.exe
 *.out
 *.app
+
