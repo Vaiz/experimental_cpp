@@ -311,12 +311,14 @@
     <ClCompile Include="tuple\tuple_for_each.cpp" />
     <ClCompile Include="type_traits\has_method.cpp" />
     <ClCompile Include="type_traits\is_same.cpp" />
+    <ClCompile Include="type_traits\member_pointer.cpp" />
     <ClCompile Include="type_traits\self.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tuple\tuple_for_each.h" />
     <ClInclude Include="type_traits\has_method.h" />
     <ClInclude Include="type_traits\is_same.h" />
+    <ClInclude Include="type_traits\member_pointer.h" />
     <ClInclude Include="type_traits\self.h" />
   </ItemGroup>
   <ItemGroup>
