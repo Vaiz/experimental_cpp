@@ -1,4 +1,5 @@
 #pragma once
+#include <stddef.h>
 #include "cpp_version.h"
 
 namespace experimental {
@@ -18,14 +19,14 @@ struct member_pointer_t {
     }
     friend constexpr bool operator==(const member_pointer_t&, const member_pointer_t&) { return true; }
 
-	friend constexpr value_type& operator%(class_type& c, const member_pointer_t&) {
+    friend constexpr value_type& operator%(class_type& c, const member_pointer_t&) {
         return c.*value;
     }
-    friend constexpr const value_type& operator%(const class_type& c, const member_pointer_t&) { 
-		return c.*value; 
-	}
+    friend constexpr const value_type& operator%(const class_type& c, const member_pointer_t&) {
+        return c.*value;
+    }
 
-    static constexpr value_type& get(TClass& c) noexcept { 
+    static constexpr value_type& get(TClass& c) noexcept {
         return c.*value;
     }
     static constexpr const value_type& get(const TClass& c) noexcept {
@@ -34,6 +35,9 @@ struct member_pointer_t {
     static constexpr value_type& set(TClass& c, value_type v) noexcept {
         c.*value = std::move(v);
         return c.*value;
+    }
+    static constexpr std::ptrdiff_t get_offset() noexcept {
+        return reinterpret_cast<std::ptrdiff_t>(&(*reinterpret_cast<class_type*>(nullptr).*value));
     }
 };
 

@@ -1,6 +1,7 @@
 #include "member_pointer.h"
 #include <string>
 #include <iostream>
+#include <cassert>
 
 
 
@@ -67,10 +68,14 @@ void member_pointer_test() {
     d_pointer_v(s) = 0.4;
     s_pointer_v(s) = "4";
     std::cout << i_pointer_v.get(const_s) << " " << d_pointer_v(const_s) << " " << s_pointer_v(const_s) << std::endl;
-	
-	s % i_pointer_v = 50;
+
+    s % i_pointer_v = 50;
     s % d_pointer_v = 0.5;
     s % s_pointer_v = "5";
     std::cout << const_s % i_pointer_v << " " << const_s % d_pointer_v << " " << const_s % s_pointer_v << std::endl;
+
+    assert(i_pointer_v.get_offset() == offsetof(some_struct, i));
+    assert(d_pointer_v.get_offset() == offsetof(some_struct, d));
+    assert(s_pointer_v.get_offset() == offsetof(some_struct, s));
 }
 }
