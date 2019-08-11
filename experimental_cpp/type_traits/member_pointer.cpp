@@ -12,10 +12,21 @@ struct some_trivial_struct {
     bool b;
 };
 using i_pointer = member_pointer_t<some_trivial_struct, int, &some_trivial_struct::i>;
+constexpr auto i_pointer_v = member_pointer_v<some_trivial_struct, int, &some_trivial_struct::i>;
 using b_pointer = member_pointer_t<some_trivial_struct, bool, &some_trivial_struct::b>;
+constexpr auto b_pointer_v = member_pointer_v<some_trivial_struct, bool, &some_trivial_struct::b>;
 using i_macro_pointer = MEMBER_POINTER_T(some_trivial_struct, i);
 
 static_assert(std::is_same<i_pointer, i_macro_pointer>::value, "");
+
+#ifdef __cpp17_enabled
+static_assert(std::is_same<i_pointer, member_pointer_tt<&some_trivial_struct::i>>::value, "");
+static_assert(std::is_same<b_pointer, member_pointer_tt<&some_trivial_struct::b>>::value, "");
+static_assert(i_pointer_v == member_pointer_vv<&some_trivial_struct::i>, "");
+static_assert(b_pointer_v == member_pointer_vv<&some_trivial_struct::b>, "");
+#endif // __cpp17_enabled
+
+
 static_assert(i_pointer::get(some_trivial_struct{ 1 }) == 1, "");
 static_assert(i_pointer::get(some_trivial_struct{ 1 }) != 2, "");
 static_assert(b_pointer::get(some_trivial_struct{ 1, true }), "");
@@ -31,8 +42,9 @@ struct some_struct {
 using i_pointer = member_pointer_t<some_struct, int, &some_struct::i>;
 using d_pointer = member_pointer_t<some_struct, double, &some_struct::d>;
 using s_pointer = member_pointer_t<some_struct, std::string, &some_struct::s>;
-
-
+constexpr auto i_pointer_v = member_pointer_v<some_struct, int, &some_struct::i>;
+static auto d_pointer_v = member_pointer_v<some_struct, double, &some_struct::d>;
+static auto s_pointer_v = member_pointer_v<some_struct, std::string, &some_struct::s>;
 
 }
 
@@ -51,9 +63,9 @@ void member_pointer_test() {
     s_pointer::set(s, "3");
     std::cout << i_pointer::get(const_s) << " " << d_pointer::get(const_s) << " " << s_pointer::get(const_s) << std::endl;
 
-    i_pointer{}(s) = 40;
-    d_pointer{}(s) = 0.4;
-    s_pointer{}(s) = "4";
+    i_pointer_v.get(s) = 40; // operator () cause compile error if pointer is constexpr
+    d_pointer_v(s) = 0.4;
+    s_pointer_v(s) = "4";
     std::cout << i_pointer{}(const_s) << " " << d_pointer{}(const_s) << " " << s_pointer{}(const_s) << std::endl;
 }
 }
