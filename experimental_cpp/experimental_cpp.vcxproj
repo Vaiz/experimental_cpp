@@ -316,6 +316,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tuple\tuple_for_each.h" />
+    <ClInclude Include="type_traits\cpp_version.h" />
     <ClInclude Include="type_traits\has_method.h" />
     <ClInclude Include="type_traits\is_same.h" />
     <ClInclude Include="type_traits\member_pointer.h" />
