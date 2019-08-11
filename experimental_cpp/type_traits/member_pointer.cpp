@@ -66,6 +66,11 @@ void member_pointer_test() {
     i_pointer_v.get(s) = 40; // operator () cause compile error if pointer is constexpr
     d_pointer_v(s) = 0.4;
     s_pointer_v(s) = "4";
-    std::cout << i_pointer{}(const_s) << " " << d_pointer{}(const_s) << " " << s_pointer{}(const_s) << std::endl;
+    std::cout << i_pointer_v.get(const_s) << " " << d_pointer_v(const_s) << " " << s_pointer_v(const_s) << std::endl;
+	
+	s % i_pointer_v = 50;
+    s % d_pointer_v = 0.5;
+    s % s_pointer_v = "5";
+    std::cout << const_s % i_pointer_v << " " << const_s % d_pointer_v << " " << const_s % s_pointer_v << std::endl;
 }
 }

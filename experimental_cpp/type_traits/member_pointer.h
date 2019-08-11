@@ -18,7 +18,14 @@ struct member_pointer_t {
     }
     friend constexpr bool operator==(const member_pointer_t&, const member_pointer_t&) { return true; }
 
-    static constexpr value_type& get(TClass& c) noexcept {
+	friend constexpr value_type& operator%(class_type& c, const member_pointer_t&) {
+        return c.*value;
+    }
+    friend constexpr const value_type& operator%(const class_type& c, const member_pointer_t&) { 
+		return c.*value; 
+	}
+
+    static constexpr value_type& get(TClass& c) noexcept { 
         return c.*value;
     }
     static constexpr const value_type& get(const TClass& c) noexcept {
@@ -31,7 +38,7 @@ struct member_pointer_t {
 };
 
 template <typename TClass, typename TMember, TMember TClass::*Pointer>
-constexpr auto member_pointer_v = member_pointer_t<TClass, TMember, Pointer>{}; // 
+constexpr auto member_pointer_v = member_pointer_t<TClass, TMember, Pointer>{}; //
 
 #define MEMBER_POINTER_T(class_name, member_name) member_pointer_t<class_name, decltype(class_name::member_name), &class_name::member_name>
 #define MEMBER_POINTER_V(class_name, member_name) member_pointer_v<class_name, decltype(class_name::member_name), &class_name::member_name>
